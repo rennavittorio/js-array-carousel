@@ -18,7 +18,7 @@ let imgSrcList = [
 
 // recupero elemento carousel
 let carouselElement = document.querySelector('.carousel');
-console.log(carouselElement);
+// console.log(carouselElement);
 
 
 for (i = 0; i < imgSrcList.length; i++){
@@ -47,7 +47,7 @@ for (i = 0; i < imgSrcList.length; i++){
 
 //recupero le slide create nel DOM
 let slideElements = document.querySelectorAll('.slide');
-console.log(slideElements);
+// console.log(slideElements);
 
 
 //recupero le frecce dal DOM
@@ -57,7 +57,7 @@ const leftBtnElement = document.querySelector('.arrow-left');
 //setto l'index counter
 let indexActiveSlide = 0;
 
-// MLS 3
+// BONUS - MLS 4
 //richiamo l'evento click sulla freccia dx
 rightBtnElement.addEventListener('click', function(){
     
@@ -75,6 +75,18 @@ rightBtnElement.addEventListener('click', function(){
     
         console.log(indexActiveSlide); //mostro index in console
 
+    } else {
+        let currentSlide = slideElements[indexActiveSlide];
+        currentSlide.classList.remove('active');
+    
+        //RIPRISTINO INDEX AL PRIMO ELEMENTO
+        indexActiveSlide = 0;
+    
+        //aggiungo class active alla slide successiva
+        let nextSlide = slideElements[indexActiveSlide]; 
+        nextSlide.classList.add('active');
+    
+        console.log(indexActiveSlide); //mostro index in console
     }
 
 })
@@ -96,9 +108,65 @@ leftBtnElement.addEventListener('click', function(){
     
         console.log(indexActiveSlide); //mostro index in console
 
+    } else {
+        //elimino la classe active dall'elemento corrente
+        let currentSlide = slideElements[indexActiveSlide];
+        currentSlide.classList.remove('active');
+    
+        //RIPRISTINO INDEX ALL'ULTIMO ELEMENTO (LENGTH - 1)
+        indexActiveSlide = slideElements.length - 1;
+    
+        //aggiungo class active alla slide precedente
+        let nextSlide = slideElements[indexActiveSlide]; 
+        nextSlide.classList.add('active');
+    
+        console.log(indexActiveSlide); //mostro index in console
     }
 
 })
+
+// MLS 3
+//richiamo l'evento click sulla freccia dx
+// rightBtnElement.addEventListener('click', function(){
+    
+//     if (indexActiveSlide < slideElements.length - 1){
+//         //elimino la classe active dall'elemento corrente
+//         let currentSlide = slideElements[indexActiveSlide];
+//         currentSlide.classList.remove('active');
+    
+//         //incremento l'indice della slide
+//         indexActiveSlide +=1;
+    
+//         //aggiungo class active alla slide successiva
+//         let nextSlide = slideElements[indexActiveSlide]; 
+//         nextSlide.classList.add('active');
+    
+//         console.log(indexActiveSlide); //mostro index in console
+
+//     }
+
+// })
+
+// //richiamo l'evento click sulla freccia sx
+// leftBtnElement.addEventListener('click', function(){
+    
+//     if (indexActiveSlide > 0){
+//         //elimino la classe active dall'elemento corrente
+//         let currentSlide = slideElements[indexActiveSlide];
+//         currentSlide.classList.remove('active');
+    
+//         //decremento l'indice della slide
+//         indexActiveSlide -=1;
+    
+//         //aggiungo class active alla slide precedente
+//         let nextSlide = slideElements[indexActiveSlide]; 
+//         nextSlide.classList.add('active');
+    
+//         console.log(indexActiveSlide); //mostro index in console
+
+//     }
+
+// })
 
 // MLS 1 e 2
 //richiamo l'evento click sulla freccia dx
