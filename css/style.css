@@ -19,6 +19,14 @@ img {
     font-size: 40px;
     top: 50%;
     transform: translateY(-50%);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .carousel__arrow:hover {
+    background-color: #eee;
 }
 
 .arrow-left {
