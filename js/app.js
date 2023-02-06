@@ -20,30 +20,54 @@ let imgSrcList = [
 let carouselElement = document.querySelector('.carousel');
 // console.log(carouselElement);
 
-
+//creo gli elementi da inserire nel DOM
 for (i = 0; i < imgSrcList.length; i++){
-    //creo elemento
-    let currentImg = ``;
-    // se primo elemento-active
+    //creo class
+    let addClassActive = ' ';
+    
+    //se primo elemento-active
     if (i === 0){
-        currentImg = `
-        <div class="slide active">
+        addClassActive = ' active';
+    };
+    
+    //creo elemento
+    let currentImg = `
+    <div class="slide` + addClassActive + `">
         <img src="${imgSrcList[i]}" alt="">
-        </div>
-        `;
-        
-    } else {
-        currentImg = `
-        <div class="slide">
-        <img src="${imgSrcList[i]}" alt="">
-        </div>
-        `;
-    }
+    </div>
+    `;
+
     
     //inserisco elemento in DOM
     carouselElement.innerHTML += currentImg;
     
 }
+
+console.log(carouselElement.innerHTML)
+
+// for (i = 0; i < imgSrcList.length; i++){
+//     //creo elemento
+//     let currentImg = ``;
+//     //se primo elemento-active
+//     if (i === 0){
+//         currentImg = `
+//         <div class="slide active">
+//         <img src="${imgSrcList[i]}" alt="">
+//         </div>
+//         `;
+        
+//     } else {
+//         currentImg = `
+//         <div class="slide">
+//         <img src="${imgSrcList[i]}" alt="">
+//         </div>
+//         `;
+//     }
+    
+//     //inserisco elemento in DOM
+//     carouselElement.innerHTML += currentImg;
+    
+// }
 
 //recupero le slide create nel DOM
 let slideElements = document.querySelectorAll('.slide');
